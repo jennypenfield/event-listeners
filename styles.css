@@ -95,7 +95,7 @@ hr.q-divider{
   background: beige;
   padding: 15px;
   text-align: center;
-  transition: 1s opacity ease;
+  /*transition: 1s opacity ease;*/
 }
 
 .nav-menu-hidden {
@@ -148,7 +148,7 @@ hr.q-divider{
   text-align: center;
 }
 #add-guest-bonus input {
-  display: block;
+  display: inline;
   margin: 15px auto;
 }
 
@@ -162,7 +162,7 @@ hr.q-divider{
 
 #add-guest-bonus .guest {
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 4px;
   text-align: left;
 }
@@ -175,7 +175,7 @@ hr.q-divider{
     padding: 0;
     width: 20px;
     height: 20px;
-    line-height: 20px;
+    line-height: 10px;
     vertical-align: middle;
     margin: 0 10px;
     background: red;

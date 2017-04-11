@@ -1,38 +1,36 @@
 /* global $ */
 
-$(document).ready(function () {
+function init () {
   $('#hide-nav button').click(function hideShowNavBar () {
-    if (document.querySelector('#hide-nav button').innerHTML === 'Hide Nav') {
-    // if ($('#hide-nav button').html ('Hide Nav')) { ... Why doesn't this work?
-      $('.nav-menu').hide()
+    if ($('#hide-nav button').html() === 'Hide Nav') {
+      $('.nav-menu').fadeOut('slow')
       $('#hide-nav button').html('Show Nav')
     } else {
-      $('.nav-menu').show()
+      $('.nav-menu').fadeIn('slow')
       $('#hide-nav button').html('Hide Nav')
     }
   })
 
-// I have designated the ul as class='guest', but it will not pick up the tomato background from css.
-// Also, how to get the red buttons inline with list items?
-  $('#guest-input').keypress(function addGuestToList (_evt) {
+  $('#guest-input').keypress(function addGuestToList (evt) {
     var newGuest = $('#guest-input').val()
-    if (_evt.which === 13 && this.value !== '') {
-      $('#add-guest ul.guest').append('<li>' + newGuest + '</li>')
+    if (evt.which === 13 && this.value !== '') {
+      $('#add-guest ul.guest').append('<li class="guest">' + newGuest + '</li>')
       this.value = ''
       return false
     }
   })
 
-  $('#guest-input-2').keypress(function addGuestWithButton (_evt) {
+  $('#guest-input-2').keypress(function addGuestWithButton (evt) {
     var newGuest = $('#guest-input-2').val()
-    if (_evt.which === 13 && this.value !== '') {
-      $('#add-guest-bonus ul.guest').append('<li>' + newGuest + '<input type="button" class="button" value="x"></li>')
+    if (evt.which === 13 && this.value !== '') {
+      $('#add-guest-bonus ul.guest').append('<li class="guest">' + newGuest + '<button>x</button></li>')
       this.value = ''
       return false
     }
-    $('.button').click(function removeGuestEntry (_evt) {
-      $(this).parent().remove()
-        // How to remove the first entry?
+    $('#add-guest-bonus').on('click', 'li', function removeGuestEntry (evt) {
+      $(this).remove()
     })
   })
-})
+}
+
+$(document).ready(init)
