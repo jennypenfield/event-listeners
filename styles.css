@@ -89,6 +89,9 @@ hr.q-divider{
 
 /*TASK 1*/
 
+#navBox {
+  height: 50px;
+}
 .nav-menu {
   visibility: visible;
   opacity: 1;
